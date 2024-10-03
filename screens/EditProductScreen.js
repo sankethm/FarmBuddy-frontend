@@ -7,6 +7,7 @@ import { UserType } from '../UserContext'
 import { useNavigation, useRoute } from '@react-navigation/native'
 
 const EditProductScreen = () => {
+    const hasDigit = /\d/;
     const navigation = useNavigation();
     const route = useRoute();
     const [file,setFile] = useState(null)
@@ -21,6 +22,7 @@ const EditProductScreen = () => {
     const [uploaded,setUploaded] = useState(false);
     const [imageUrl,setImageUrl] = useState("");
     const [publicId,setPublicId] = useState("");
+    const [errorMsg,setErrorMsg] = useState(false);
     const [items, setItems] = useState([
       { label: "Vegetable", value: "Vegetable" },
       { label: "Fruit", value: "Fruit" },
@@ -130,12 +132,45 @@ const EditProductScreen = () => {
         
         <View style={{ marginVertical: 10 }}>
           <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+            Select category
+          </Text>
+
+        <DropDownPicker
+              style={{
+                borderColor: "#B7B7B7",
+                height: 30,
+                marginBottom: open ? 120 : 15,
+              }}
+              open={open}
+              value={category} //genderValue
+              items={items}
+              setOpen={setOpen}
+              setValue={setCategory}
+              setItems={setItems}
+              placeholder="choose category"
+              placeholderStyle={styles.placeholderStyles}
+              onOpen={onGenderOpen}
+              // onChangeValue={onChange}
+              zIndex={3000}
+              zIndexInverse={1000}
+            />
+          </View>
+
+        <View style={{ marginVertical: 10 }}>
+          <Text style={{ fontSize: 15, fontWeight: "bold" }}>
             Product Name
           </Text>
 
           <TextInput
             value={name}
-            onChangeText={(text) => setName(text)}
+            onChangeText={(text) => {
+              if(!hasDigit.test(text)){
+                setName(text)
+                setErrorMsg(false)
+              }
+              else
+                setErrorMsg(true)
+            }}
             style={{
               padding: 10,
               borderColor: "#D0D0D0",
@@ -145,6 +180,9 @@ const EditProductScreen = () => {
             }}
             placeholder="Enter product name"
           />
+          {errorMsg && <Text style={{ color:"red", fontSize: 12, fontWeight: "bold" }}>
+            Product name should not contain numbers
+          </Text>}
         </View>
 
         <View style={{ marginVertical: 10 }}>
@@ -206,32 +244,6 @@ const EditProductScreen = () => {
             placeholder="Enter discount from 0 to 100"
           />
         </View>
-
-        <View style={{ marginVertical: 10 }}>
-          <Text style={{ fontSize: 15, fontWeight: "bold" }}>
-            Select category
-          </Text>
-
-        <DropDownPicker
-              style={{
-                borderColor: "#B7B7B7",
-                height: 30,
-                marginBottom: open ? 120 : 15,
-              }}
-              open={open}
-              value={category} //genderValue
-              items={items}
-              setOpen={setOpen}
-              setValue={setCategory}
-              setItems={setItems}
-              placeholder="choose category"
-              placeholderStyle={styles.placeholderStyles}
-              onOpen={onGenderOpen}
-              // onChangeValue={onChange}
-              zIndex={3000}
-              zIndexInverse={1000}
-            />
-          </View>
 
           <View style={{ marginVertical: 10 }}>
           <Text style={{ fontSize: 15, fontWeight: "bold" }}>
