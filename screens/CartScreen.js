@@ -46,8 +46,6 @@ const total = cart
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>{total}</Text>
       </View>
 
-      <Text style={{ marginHorizontal: 10 }}>EMI details Available</Text>
-
       <Pressable
         onPress={() => navigation.navigate("Confirm")}
         style={{
@@ -110,12 +108,6 @@ const total = cart
                 >
                   {item.price*(1-item.discount/100)}
                 </Text>
-                <Image
-                  style={{ width: 30, height: 30, resizeMode: "contain" }}
-                  source={{
-                    uri: "https://assets.stickpng.com/thumbs/5f4924cc68ecc70004ae7065.png",
-                  }}
-                />
                 <Text style={{ color: "green" }}>In Stock</Text>
                 {/* <Text style={{ fontWeight: "500", marginTop: 6 }}>
                   {item?.rating?.rate} ratings
