@@ -162,7 +162,7 @@ const AddProduct = () => {
             }}
             placeholder="Enter product name"
           />
-          {errorMsg && <Text style={{ fontSize: 12, fontWeight: "bold" }}>
+          {errorMsg && <Text style={{ color:"red", fontSize: 12, fontWeight: "bold" }}>
             Product name should not contain numbers
           </Text>}
         </View>
