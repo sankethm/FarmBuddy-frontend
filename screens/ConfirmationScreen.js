@@ -327,12 +327,6 @@ const ConfirmationScreen = () => {
               />
             )}
 
-            <Text style={{ flex: 1 }}>
-              <Text style={{ color: "green", fontWeight: "500" }}>
-                Tomorrow by 10pm
-              </Text>{""}
-              -FREE delivery with your Prime membership
-            </Text>
           </View>
           <Pressable
             onPress={() => setCurrentStep(2)}
@@ -413,7 +407,7 @@ const ConfirmationScreen = () => {
               />
             )}
 
-            <Text>UPI / Credit or Debit card</Text>
+            <Text>UPI / Debit card</Text>
           </View>
           <Pressable
             onPress={() => setCurrentStep(3)}
