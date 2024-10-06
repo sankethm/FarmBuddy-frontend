@@ -87,21 +87,21 @@ const ProfileScreen = () => {
       <Text style={{ fontSize: 16, fontWeight: "bold" }}>Welcome {user?.name}</Text>
 
       <View style={{ flexDirection: "row", alignItems: "center", gap: 10, marginTop: 12 }}>
-        <Pressable style={{ padding: 10, backgroundColor: "#E0E0E0", borderRadius: 25, flex: 1 }}>
+        <Pressable style={{ padding: 10, backgroundColor: "#FFAC1C", borderRadius: 25, flex: 1 }}>
           <Text style={{ textAlign: "center" }}>Your Orders</Text>
         </Pressable>
 
-        <Pressable style={{ padding: 10, backgroundColor: "#E0E0E0", borderRadius: 25, flex: 1 }}>
+        <Pressable style={{ padding: 10, backgroundColor: "#FFAC1C", borderRadius: 25, flex: 1 }}>
           <Text style={{ textAlign: "center" }}>Your Account</Text>
         </Pressable>
       </View>
 
       <View style={{ flexDirection: "row", alignItems: "center", gap: 10, marginTop: 12 }}>
-        <Pressable style={{ padding: 10, backgroundColor: "#E0E0E0", borderRadius: 25, flex: 1 }}>
+        <Pressable style={{ padding: 10, backgroundColor: "#FFAC1C", borderRadius: 25, flex: 1 }}>
           <Text style={{ textAlign: "center" }}>Buy Again</Text>
         </Pressable>
 
-        <Pressable onPress={logout} style={{ padding: 10, backgroundColor: "#E0E0E0", borderRadius: 25, flex: 1 }}>
+        <Pressable onPress={logout} style={{ padding: 10, backgroundColor: "#FFAC1C", borderRadius: 25, flex: 1 }}>
           <Text style={{ textAlign: "center" }}>Logout</Text>
         </Pressable>
       </View>
@@ -131,7 +131,18 @@ const ProfileScreen = () => {
                     source={{ uri: product.image }}
                     style={{ width: 100, height: 100, resizeMode: "contain" }}
                   />
+                  <View>
+                    <Text style={{ width: 150, marginTop: 10 }}>
+                      {product.name}
+                    </Text>
+                  </View>
+                  <View>
+                    <Text style={{ width: 150, marginTop: 10 }}>
+                      {product.price}
+                    </Text>
+                  </View>
                 </View>
+                
               ))}
             </Pressable>
           ))
