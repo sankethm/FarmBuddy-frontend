@@ -327,6 +327,10 @@ const ConfirmationScreen = () => {
               />
             )}
 
+            <Text style={{ flex: 1 }}>
+              <Text style={{ color: "green", fontWeight: "500" }}>
+              </Text>{""}
+            </Text>
           </View>
           <Pressable
             onPress={() => setCurrentStep(2)}
