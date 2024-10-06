@@ -3,8 +3,7 @@ import React, { useLayoutEffect, userEffect, useContext, useEffect, useState } f
 import { useNavigation } from '@react-navigation/native'
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import axios from 'axios';
-import { UserType } from '../UserContext';
-import { $where } from '../api/models/user';
+import { UserType } from '../UserContext'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
